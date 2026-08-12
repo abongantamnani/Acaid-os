@@ -1,75 +1,57 @@
-# React + TypeScript + Vite
+## ACAID OS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Afri Car Artificial Intelligence Device
 
-Currently, two official plugins are available:
+ACAID is a proactive invehicle intelligence and safety platform designed
+provide safety for drivers and passengers without having them to perform under pressure or stressful conditions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It combines:
 
-## React Compiler
+- AI-powered audio intelligence
+- Computer vision
+- Vehicle telemetry
+- GPS location
+- Driver intelligence
+- Real-time threat detection
+- Security monitoring
+- Emergency response
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Architecture
 
-## Expanding the ESLint configuration
+React + TypeScript
+Vite
+Tailwind CSS
+shadcn/ui
+Framer Motion
+Lucide
+OpenStreetMap
+WebSocket / realtime telemetry
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Core Systems
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Vehicle Intelligence
+Processes vehicle and sensor data in real time.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### AI Vision
+Detects people, objects and vehicle events.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### AI Audio
+Detects events such as gunshots, yelling, glass breaking and
+other high-risk sounds.
 
-```
+### Security Dashboard
+Provides security operators with vehicle status,
+location, alerts and incident information.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Emergency Communication
+Provides calling and communication capabilities
+between the vehicle and security operators.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Development
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Contact 
+ntamnaniabonga999@gmail.com "project by GIVENQAUN PTY LTD"
 
-```
+```bash
+npm install
+npm run dev
