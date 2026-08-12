@@ -1,0 +1,1228 @@
+/* =========================================================
+   ACAID MONITOR PAGE
+   LOCAL STYLES ONLY
+========================================================= */
+
+.monitor-page {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  padding: 24px 34px 20px;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(90, 105, 120, 0.08),
+      transparent 35%
+    ),
+    #07090c;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.monitor-topbar {
+  height: 54px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.monitor-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.monitor-brand-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #2a3138;
+  border-radius: 11px;
+
+  color: #dfe5ea;
+  background: #11161b;
+}
+
+.monitor-brand strong,
+.monitor-brand span {
+  display: block;
+}
+
+.monitor-brand strong {
+  font-size: 14px;
+  letter-spacing: 0.13em;
+}
+
+.monitor-brand span {
+  margin-top: 2px;
+  color: #59636d;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+========================================================= */
+
+.monitor-status {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.monitor-status > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #68737d;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.monitor-exit-button {
+  padding: 8px 14px;
+
+  border: 1px solid #293139;
+  border-radius: 8px;
+
+  color: #8d98a2;
+  background: #0d1115;
+
+  font-size: 11px;
+  cursor: pointer;
+
+  transition: 160ms ease;
+}
+
+.monitor-exit-button:hover {
+  border-color: #46515b;
+  color: #e2e7eb;
+  background: #12171c;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.monitor-main {
+  min-height: 0;
+  flex: 1;
+
+  margin-top: 18px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    345px;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.fleet-section,
+.intelligence-panel {
+  min-height: 0;
+
+  border: 1px solid #20272e;
+  border-radius: 18px;
+
+  background: #0b0f13;
+}
+
+.fleet-section {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   FLEET HEADER
+========================================================= */
+
+.fleet-heading {
+  padding: 21px 23px 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+}
+
+.monitor-eyebrow {
+  color: #65707a;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.fleet-heading h1 {
+  margin: 7px 0 5px;
+
+  color: #f2f5f7;
+
+  font-size: 27px;
+  letter-spacing: -0.035em;
+}
+
+.fleet-heading p {
+  margin: 0;
+
+  color: #626d77;
+  font-size: 11px;
+}
+
+.fleet-count {
+  min-width: 70px;
+  text-align: right;
+}
+
+.fleet-count strong,
+.fleet-count span {
+  display: block;
+}
+
+.fleet-count strong {
+  color: #e8edf1;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.fleet-count span {
+  margin-top: 5px;
+
+  color: #59646e;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   MAP / LIST TOGGLE
+========================================================= */
+
+.monitor-view-row {
+  padding: 0 23px 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex-shrink: 0;
+}
+
+.monitor-view-toggle {
+  display: inline-flex;
+
+  padding: 3px;
+
+  border: 1px solid #20272e;
+  border-radius: 9px;
+
+  background: #080b0e;
+}
+
+.monitor-view-toggle button {
+  height: 29px;
+
+  padding: 0 12px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border: 0;
+  border-radius: 6px;
+
+  color: #5f6a74;
+  background: transparent;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.monitor-view-toggle button:hover {
+  color: #aeb7be;
+}
+
+.monitor-view-toggle button.active {
+  color: #e8edf1;
+  background: #171d22;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.monitor-view-toggle svg {
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   REAL LEAFLET MAP
+========================================================= */
+
+.fleet-map {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+
+  overflow: hidden;
+
+  border-top: 1px solid #171d22;
+  border-bottom: 1px solid #171d22;
+
+  background: #090d11;
+}
+
+.acaid-leaflet-map {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+
+  background: #090d11;
+}
+
+
+/* Dark ACAID map treatment */
+
+.acaid-leaflet-map .leaflet-tile-pane {
+  filter:
+    grayscale(1)
+    brightness(0.48)
+    contrast(1.12);
+}
+
+
+/* Zoom controls */
+
+.acaid-leaflet-map .leaflet-control-zoom {
+  margin: 14px !important;
+
+  overflow: hidden;
+
+  border: 1px solid #303840 !important;
+  border-radius: 8px !important;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.acaid-leaflet-map .leaflet-control-zoom a {
+  width: 30px !important;
+  height: 30px !important;
+
+  line-height: 30px !important;
+
+  color: #aab3ba !important;
+  background: #0b0f13 !important;
+
+  border-color: #252d34 !important;
+}
+
+.acaid-leaflet-map .leaflet-control-zoom a:hover {
+  color: #ffffff !important;
+  background: #151b20 !important;
+}
+
+
+/* Attribution */
+
+.acaid-leaflet-map .leaflet-control-attribution {
+  color: #68737d !important;
+  background: rgba(7, 9, 12, 0.84) !important;
+
+  font-size: 8px !important;
+}
+
+.acaid-leaflet-map .leaflet-control-attribution a {
+  color: #8b969f !important;
+}
+
+
+/* =========================================================
+   MAP OVERLAYS
+========================================================= */
+
+.map-live-indicator {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+
+  z-index: 500;
+
+  padding: 7px 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border: 1px solid rgba(46, 57, 66, 0.9);
+  border-radius: 7px;
+
+  color: #a1abb3;
+  background: rgba(8, 12, 16, 0.88);
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  backdrop-filter: blur(8px);
+}
+
+.map-live-indicator span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #7f9186;
+
+  box-shadow:
+    0 0 0 4px rgba(127, 145, 134, 0.08);
+}
+
+.map-location-label {
+  position: absolute;
+  right: 14px;
+  bottom: 28px;
+
+  z-index: 500;
+
+  padding: 6px 8px;
+
+  border: 1px solid rgba(44, 52, 59, 0.8);
+  border-radius: 6px;
+
+  color: #78838d;
+  background: rgba(8, 12, 16, 0.82);
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   ACAID VEHICLE MARKERS
+========================================================= */
+
+.acaid-map-marker-wrapper {
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.acaid-map-marker {
+  position: relative;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.acaid-map-marker-ring {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #aab4bc;
+  border-radius: 50%;
+
+  background: rgba(11, 15, 19, 0.94);
+
+  box-shadow:
+    0 0 0 5px rgba(170, 180, 190, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.acaid-map-marker-car {
+  display: grid;
+  place-items: center;
+
+  color: #e3e8ec;
+}
+
+.acaid-map-marker-label {
+  position: absolute;
+
+  top: 42px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 3px 6px;
+
+  border: 1px solid #293139;
+  border-radius: 5px;
+
+  color: #9aa4ac;
+  background: #0b0f13;
+
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  white-space: nowrap;
+}
+
+.acaid-map-marker.watch
+  .acaid-map-marker-ring {
+  border-color: #b4a173;
+
+  box-shadow:
+    0 0 0 5px rgba(180, 161, 115, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.acaid-map-marker.watch
+  .acaid-map-marker-label {
+  border-color: #4a4030;
+  color: #b4a173;
+}
+
+
+/* =========================================================
+   MAP POPUP
+========================================================= */
+
+.acaid-leaflet-map
+  .leaflet-popup-content-wrapper {
+  color: #e5eaee;
+
+  background: #0d1216;
+
+  border: 1px solid #252d34;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.acaid-leaflet-map
+  .leaflet-popup-tip {
+  background: #0d1216;
+}
+
+.acaid-leaflet-map
+  .leaflet-popup-close-button {
+  color: #66727c !important;
+}
+
+.acaid-leaflet-map
+  .leaflet-popup-close-button:hover {
+  color: #ffffff !important;
+}
+
+.acaid-map-popup {
+  min-width: 170px;
+}
+
+.acaid-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid #20272e;
+}
+
+.acaid-popup-header strong {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.acaid-popup-header span {
+  color: #839188;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.acaid-popup-header span.watch {
+  color: #b4a173;
+}
+
+.acaid-popup-data {
+  margin-top: 9px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+}
+
+.acaid-popup-data span,
+.acaid-popup-data strong {
+  display: block;
+}
+
+.acaid-popup-data span {
+  color: #56616b;
+
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.acaid-popup-data strong {
+  margin-top: 4px;
+
+  color: #d7dde1;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   LIST VIEW
+========================================================= */
+
+.vehicle-list {
+  flex: 1;
+
+  overflow-y: auto;
+
+  border-top: 1px solid #171d22;
+}
+
+.vehicle-list-header,
+.vehicle-list-row {
+  display: grid;
+  grid-template-columns:
+    minmax(180px, 1fr)
+    130px
+    90px;
+  align-items: center;
+}
+
+.vehicle-list-header {
+  min-height: 38px;
+
+  padding: 0 18px;
+
+  border-bottom: 1px solid #171e24;
+
+  color: #56616b;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.vehicle-list-row {
+  width: 100%;
+
+  min-height: 62px;
+
+  padding: 8px 18px;
+
+  border: 0;
+  border-bottom: 1px solid #171e24;
+
+  color: #e6eaed;
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background 160ms ease;
+}
+
+.vehicle-list-row:hover {
+  background: #10151a;
+}
+
+.vehicle-list-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vehicle-mini-icon {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  color: #89949e;
+  background: #171c21;
+}
+
+.vehicle-mini-info strong,
+.vehicle-mini-info span {
+  display: block;
+}
+
+.vehicle-mini-info strong {
+  font-size: 10px;
+}
+
+.vehicle-mini-info span {
+  margin-top: 4px;
+
+  color: #5e6973;
+  font-size: 8px;
+}
+
+.vehicle-status-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #7f9086;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.vehicle-status-label span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #7f9086;
+}
+
+.vehicle-status-label.watch {
+  color: #b4a173;
+}
+
+.vehicle-status-label.watch span {
+  background: #b4a173;
+}
+
+.vehicle-threat {
+  color: #8c9a91;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-align: right;
+}
+
+.vehicle-threat.medium {
+  color: #b4a173;
+}
+
+.vehicle-threat small {
+  margin-left: 2px;
+
+  color: #515c65;
+
+  font-size: 7px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   INTELLIGENCE PANEL
+========================================================= */
+
+.intelligence-panel {
+  padding: 19px;
+  overflow-y: auto;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-heading h2 {
+  margin: 6px 0 0;
+
+  font-size: 20px;
+  letter-spacing: -0.025em;
+}
+
+.online-pill {
+  padding: 5px 8px;
+
+  border: 1px solid #29382f;
+  border-radius: 100px;
+
+  color: #84968a;
+  background: #0d1511;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   THREAT
+========================================================= */
+
+.threat-overview {
+  margin-top: 18px;
+
+  padding: 15px;
+
+  border: 1px solid #20282f;
+  border-radius: 13px;
+
+  background: #0e1317;
+}
+
+.threat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.threat-top > div {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.threat-top span {
+  margin-right: 5px;
+
+  color: #59646e;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.threat-top strong {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.threat-top small {
+  color: #555f68;
+  font-size: 9px;
+}
+
+.threat-top > svg {
+  color: #8b9990;
+}
+
+.threat-track {
+  height: 4px;
+
+  margin-top: 14px;
+
+  overflow: hidden;
+
+  border-radius: 100px;
+
+  background: #20272d;
+}
+
+.threat-track div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #87958c;
+}
+
+.threat-overview p {
+  margin: 10px 0 0;
+
+  color: #606b75;
+
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   DATA GRID
+========================================================= */
+
+.data-grid {
+  margin-top: 12px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border: 1px solid #20272e;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.data-grid > div {
+  padding: 12px;
+
+  border-right: 1px solid #20272e;
+  border-bottom: 1px solid #20272e;
+}
+
+.data-grid > div:nth-child(2n) {
+  border-right: 0;
+}
+
+.data-grid > div:nth-child(n + 3) {
+  border-bottom: 0;
+}
+
+.data-grid span,
+.data-grid strong {
+  display: block;
+}
+
+.data-grid span {
+  color: #56616b;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.data-grid strong {
+  margin-top: 5px;
+
+  color: #dbe1e5;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   OCCUPANTS
+========================================================= */
+
+.occupants {
+  margin-top: 16px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 7px;
+}
+
+.section-title span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #65707a;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.section-title strong {
+  color: #c8ced3;
+  font-size: 10px;
+}
+
+.occupant {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px 0;
+
+  border-bottom: 1px solid #171e24;
+}
+
+.occupant-avatar {
+  width: 27px;
+  height: 27px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  color: #9aa5ae;
+  background: #171d23;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.occupant > div:nth-child(2) {
+  flex: 1;
+}
+
+.occupant strong,
+.occupant span {
+  display: block;
+}
+
+.occupant strong {
+  font-size: 9px;
+}
+
+.occupant div:nth-child(2) span {
+  margin-top: 3px;
+
+  color: #59646d;
+
+  font-size: 7px;
+}
+
+.occupant > svg {
+  color: #77877d;
+}
+
+.safe-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #7c8b81;
+}
+
+
+/* =========================================================
+   LATEST EVENT
+========================================================= */
+
+.latest-event {
+  margin-top: 15px;
+
+  padding: 11px;
+
+  display: flex;
+  gap: 10px;
+
+  border: 1px solid #272a28;
+  border-radius: 11px;
+
+  background: #111311;
+}
+
+.event-icon {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  color: #a69b79;
+  background: #211f18;
+}
+
+.latest-event span,
+.latest-event strong,
+.latest-event p {
+  display: block;
+}
+
+.latest-event span {
+  color: #766f5c;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.latest-event strong {
+  margin-top: 4px;
+  font-size: 9px;
+}
+
+.latest-event p {
+  margin: 4px 0 0;
+
+  color: #5d676e;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   APPLICATION DOCK
+========================================================= */
+
+.monitor-appbar {
+  margin-top: 14px;
+
+  display: flex;
+  align-items: stretch;
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+.monitor-app-btn {
+  min-width: 0;
+
+  flex: 1;
+
+  padding: 10px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  border: 1px solid #20272e;
+  border-radius: 11px;
+
+  color: #e4e9ed;
+  background: #0c1014;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: 160ms ease;
+}
+
+.monitor-app-btn:hover {
+  border-color: #3b454e;
+  background: #11161b;
+}
+
+.monitor-app-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  color: #87929c;
+  background: #161c21;
+}
+
+.monitor-app-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.monitor-app-details {
+  min-width: 0;
+  flex: 1;
+}
+
+.monitor-app-details strong,
+.monitor-app-details span {
+  display: block;
+}
+
+.monitor-app-details strong {
+  font-size: 9px;
+}
+
+.monitor-app-details span {
+  margin-top: 3px;
+
+  color: #59646e;
+
+  font-size: 7px;
+}
+
+.monitor-app-arrow {
+  color: #505b65;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .monitor-page {
+    padding: 18px;
+  }
+
+  .monitor-main {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .intelligence-panel {
+    max-height: 500px;
+  }
+
+  .monitor-appbar {
+    flex-wrap: wrap;
+  }
+
+  .monitor-app-btn {
+    flex: 1 1 40%;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .monitor-status > div {
+    display: none;
+  }
+
+  .fleet-heading {
+    padding: 18px;
+  }
+
+  .monitor-view-row {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .vehicle-list-header,
+  .vehicle-list-row {
+    grid-template-columns:
+      minmax(130px, 1fr)
+      90px
+      65px;
+  }
+
+}
